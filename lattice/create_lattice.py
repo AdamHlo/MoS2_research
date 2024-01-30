@@ -32,9 +32,9 @@ class Lattice:
         add_ase_atoms('S', self.S_config_down)
         add_ase_atoms('S', self.S_config_up)
 
-        ase_cell = [[self.cell.cell_xy.bottom_right[0], self.cell.cell_xy.bottom_right[1], 0],
-                    [self.cell.cell_xy.top_left[0], self.cell.cell_xy.top_left[1],  0],
-                    [self.cell.cell_xy.bottom_left[0], self.cell.cell_xy.bottom_left[1], self.cell.height]]
+        ase_cell = [list(self.cell.e_1),
+                    list(self.cell.e_2),
+                    list(self.cell.e_3)]
 
         atoms.set_pbc(True)
         atoms.set_cell(ase_cell)
