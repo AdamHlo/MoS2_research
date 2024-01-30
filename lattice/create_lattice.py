@@ -43,36 +43,30 @@ class Lattice:
 
 
 def generate_lattice(nx, ny, lattice_constant=3.16, sulphur_z_offset=1.58, z_cell_size=50) -> Lattice:
+    a_x = np.array([lattice_constant, 0, 0])
+    a_y = np.array([-lattice_constant / 2, np.sqrt(3) * lattice_constant / 2, 0])
+    centering_vector = np.array([0, 0, z_cell_size / 2])
+
     s_z_offset = np.array([0, 0, sulphur_z_offset])
     s_y_offset = np.array([0, lattice_constant / np.sqrt(3), 0])
 
-    a_x = np.array([lattice_constant, 0, 0])
-    a_y = np.array([-lattice_constant / 2, np.sqrt(3) * lattice_constant / 2, 0])
-
-    pbc_x_offset = lattice_constant / 2
-    pbc_y_offset_top = (a_y[1] + s_y_offset[1]) / 2 # arbitrary, just has to be lower than a_y[1] and higher than s_y_offset[1]
-    pbc_y_offset_bottom = lattice_constant / np.sqrt(3)
+    cell_offset_top = (a_y[1] + s_y_offset[1]) / 2  # arbitrary, just has to be lower than a_y[1] and higher than s_y_offset[1]
+    cell_offset_bottom = a_y[1] - cell_offset_top
+    pbc_origin_translation = (lattice_constant / 2, cell_offset_bottom, 0)
 
     Mo_config = []
     S_config_up = []
     S_config_down = []
 
-    e_1 = None
-    e_2 = None
-    e_3 = (0, 0, z_cell_size)
-
-    e_3_offset = np.array(e_3) / 2
-
     for i, j in it.product(range(nx), range(ny)):
-        position = i * a_x + j * a_y
-        Mo_config.append(position + e_3_offset)
-        S_config_up.append(position + s_y_offset + s_z_offset + e_3_offset)
-        S_config_down.append(position + s_y_offset - s_z_offset + e_3_offset)
+        position = i * a_x + j * a_y + pbc_origin_translation + centering_vector
+        Mo_config.append(position)
+        S_config_up.append(position + s_y_offset + s_z_offset)
+        S_config_down.append(position + s_y_offset - s_z_offset)
 
-        if i == 0 and j == ny-1:
-            e_2 = position + np.array([-pbc_x_offset, pbc_y_offset_top, 0])
-        elif i == nx-1 and j == 0:
-            e_1 = position + np.array([pbc_x_offset, -pbc_y_offset_bottom, 0])
+    e_1 = (nx * lattice_constant, 0, 0)
+    e_2 = (-ny * lattice_constant / 2, ny * np.sqrt(3) * lattice_constant / 2, 0)
+    e_3 = (0, 0, z_cell_size)
 
     cell = Cell(e_1, e_2, e_3)
 
