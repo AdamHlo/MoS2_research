@@ -75,14 +75,60 @@ def generate_lattice(nx, ny, lattice_constant=3.16, sulphur_z_offset=1.58, z_cel
     return lattice
 
 
-def write_ase_configuration(nx, ny, filename='output.xyz'):
+def clone_2d_lattice(lattice: Lattice, order: int = 1) -> Lattice:
+    Mo_config = lattice.Mo_config
+    S_config_up = lattice.S_config_up
+    S_config_down = lattice.S_config_down
+
+    e_1 = np.array(lattice.cell.e_1)
+    e_2 = np.array(lattice.cell.e_2)
+    e_3 = np.array(lattice.cell.e_3)
+
+    origin_displacement = order * (e_1 + e_2)
+
+    for i, j in it.product(range(-order, order+1), range(-order, order+1)):
+        if (i, j) != (0, 0):
+            displacement = i * e_1 + j * e_2
+            Mo_config = np.append(Mo_config, lattice.Mo_config + displacement, axis=0)
+            S_config_up = np.append(S_config_up, lattice.S_config_up + displacement, axis=0)
+            S_config_down = np.append(S_config_down, lattice.S_config_down + displacement, axis=0)
+
+    Mo_config = Mo_config + origin_displacement
+    S_config_up = S_config_up + origin_displacement
+    S_config_down = S_config_down + origin_displacement
+
+    e_1_new = (2 * order + 1) * e_1
+    e_2_new = (2 * order + 1) * e_2
+    e_3_new = e_3
+
+    new_lattice = Lattice(Cell(tuple(e_1_new), tuple(e_2_new), tuple(e_3_new)), Mo_config, S_config_up, S_config_down)
+
+    return new_lattice
+
+
+def write_ase_configuration(nx: int, ny: int, filename: str = 'output.xyz'):
     lattice = generate_lattice(nx, ny)
     atoms = lattice.get_ase_atoms()
     write(filename, atoms)
 
 
+def write_ase_configuration_extended(nx: int, ny: int, filename: str = 'output.xyz'):
+    """
+    Used to visually check whether cell for PBCs is properly set (alignment of multiplied lattice)
+    :param nx:
+    :param ny:
+    :param filename:
+    :return:
+    """
+    lattice = generate_lattice(nx, ny)
+    extended_lattice = clone_2d_lattice(lattice)
+    atoms = extended_lattice.get_ase_atoms()
+    write(filename, atoms)
+
+
 def main():
-    write_ase_configuration(10, 10)
+    write_ase_configuration(10, 10, 'ase_configuration.xyz')
+    write_ase_configuration_extended(10, 10, 'multiplied_ase_configuration.xyz')
 
 
 if __name__ == '__main__':
