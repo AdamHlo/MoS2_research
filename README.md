@@ -11,6 +11,7 @@
 this should be checked thoroughly - there are some very important suggestions about cp method and its implementation.
 * https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.155109 - generovanie k bodov
 * https://chemrxiv.org/engage/chemrxiv/article-details/60c74474ee301c02d6c7916e - dft integration grid
+* https://www.materialscloud.org/learn/data/learn/files/Zem3D6woIu3r/1-4a_day1_handson_Giannozzi_.pdf - random dft tutorial
 
 **CP**
 * electronic minimization to bring the system to electronic ground state
