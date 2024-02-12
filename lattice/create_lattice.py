@@ -127,8 +127,8 @@ def write_ase_configuration_extended(nx: int, ny: int, filename: str = 'output.x
 
 
 def main():
-    write_ase_configuration(3, 3, 'ase_configuration.xyz')
-    write_ase_configuration_extended(3, 3, 'multiplied_ase_configuration.xyz')
+    write_ase_configuration(6, 6, 'ase_configuration.xyz')
+    write_ase_configuration_extended(6, 6, 'multiplied_ase_configuration.xyz')
 
 
 if __name__ == '__main__':
