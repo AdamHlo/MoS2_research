@@ -20,6 +20,8 @@
   startingpot = 'file'
   conv_thr =   1.0000000000d-07
 /
+&IONS
+/
 &CELL
   cell_dofree='ibrav'
 /
