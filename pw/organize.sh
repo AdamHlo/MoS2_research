@@ -12,17 +12,17 @@ if [ -f ./electron_minimization.out ] && [ -f ./relaxation.out ]; then
 fi
 
 if [ -f ./electron_minimization.out ]; then
-   mv ./electron_minimization.out "$(DIR)/electron_minimization.out"
+   mv ./electron_minimization.out "$DIR/electron_minimization.out"
 fi
 
 if [ -f ./relaxation.out ]; then
-   mv ./relaxation.out "$(DIR)/relaxation.out"
+   mv ./relaxation.out "$DIR/relaxation.out"
 fi
 
 if [ -f ./out/MoS2.xml ]; then
-   mv ./out/MoS2.xml "$(OUTDIR)/MoS2.xml"
+   mv ./out/MoS2.xml "$OUTDIR/MoS2.xml"
 fi
 
 if [ -d ./out/MoS2.save ]; then
-   mv ./out/MoS2.save "$(OUTDIR)/MoS2.save"
+   mv ./out/MoS2.save "$OUTDIR/MoS2.save"
 fi
