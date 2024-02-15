@@ -6,8 +6,6 @@
   restart_mode = 'from_scratch'
   verbosity = 'high'
   wf_collect = .true.
-  startingwfc = 'file'
-  startingpot = 'file'
 /
 &SYSTEM
   ecutwfc = 120
@@ -18,8 +16,9 @@
   smearing = 'fermi-dirac'
 /
 &ELECTRONS
+  startingwfc = 'file'
+  startingpot = 'file'
   conv_thr =   1.0000000000d-07
-  diagonalization = 'cg'
 /
 &CELL
   cell_dofree='ibrav'
