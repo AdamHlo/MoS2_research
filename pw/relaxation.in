@@ -8,8 +8,8 @@
   wf_collect = .true.
 /
 &SYSTEM
-  ecutwfc = 120
-  ecutrho = 960
+  ecutwfc = 70
+  ecutrho = 560
   ibrav = 0
   nat = 108
   ntyp = 2
