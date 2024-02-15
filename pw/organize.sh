@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DT=`date +"%d.%b.%Y_%T"`
+DT=`date +"%d-%b-%Y_%H-%M-%S"`
 OUTDIR="./results/$DT/out"
 DIR="./results/$DT/"
 
