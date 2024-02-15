@@ -41,6 +41,24 @@ class Lattice:
 
         return atoms
 
+    def get_espresso_input(self) -> str:
+        lines = 'ATOMIC_POSITIONS angstrom\n'
+        for pos in self.Mo_config:
+            lines += f'Mo    {pos[0]}    {pos[1]}    {pos[2]}\n'
+
+        for pos in self.S_config_up:
+            lines += f'S    {pos[0]}    {pos[1]}    {pos[2]}\n'
+
+        for pos in self.S_config_down:
+            lines += f'S    {pos[0]}    {pos[1]}    {pos[2]}\n'
+
+        lines += '\nCELL_PARAMETERS angstrom\n'
+        lines += f'{self.cell.e_1[0]}    {self.cell.e_1[1]}    {self.cell.e_1[2]}\n'
+        lines += f'{self.cell.e_2[0]}    {self.cell.e_2[1]}    {self.cell.e_2[2]}\n'
+        lines += f'{self.cell.e_3[0]}    {self.cell.e_3[1]}    {self.cell.e_3[2]}\n'
+
+        return lines
+
 
 def generate_lattice(nx, ny, lattice_constant=3.16, sulphur_z_offset=1.58, z_cell_size=50) -> Lattice:
     a_x = np.array([lattice_constant, 0, 0])
@@ -106,29 +124,32 @@ def clone_2d_lattice(lattice: Lattice, order: int = 1) -> Lattice:
     return new_lattice
 
 
-def write_ase_configuration(nx: int, ny: int, filename: str = 'output.xyz'):
-    lattice = generate_lattice(nx, ny)
+def write_ase_configuration(lattice, filename: str = 'output.xyz'):
     atoms = lattice.get_ase_atoms()
     write(filename, atoms)
 
 
-def write_ase_configuration_extended(nx: int, ny: int, filename: str = 'output.xyz'):
+def write_ase_configuration_extended(lattice, filename: str = 'output.xyz'):
     """
     Used to visually check whether cell for PBCs is properly set (alignment of multiplied lattice)
-    :param nx:
-    :param ny:
+    :param lattice:
     :param filename:
     :return:
     """
-    lattice = generate_lattice(nx, ny)
+
     extended_lattice = clone_2d_lattice(lattice)
     atoms = extended_lattice.get_ase_atoms()
     write(filename, atoms)
 
 
 def main():
-    write_ase_configuration(6, 6, 'ase_configuration.xyz')
-    write_ase_configuration_extended(6, 6, 'multiplied_ase_configuration.xyz')
+    nx = 6
+    ny = 6
+    lattice = generate_lattice(nx, ny)
+    write_ase_configuration(lattice, 'ase_configuration.xyz')
+    write_ase_configuration_extended(lattice, 'multiplied_ase_configuration.xyz')
+    espresso_input = lattice.get_espresso_input()
+    print(espresso_input)
 
 
 if __name__ == '__main__':
