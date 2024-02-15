@@ -11,7 +11,7 @@
   ecutwfc = 70
   ecutrho = 560
   ibrav = 0
-  nat = 108
+  nat = 3
   ntyp = 2
   smearing = 'fermi-dirac'
 /
