@@ -16,7 +16,7 @@
   smearing = 'fermi-dirac'
 /
 &ELECTRONS
-  conv_thr =   1.0000000000d-07
+  conv_thr =   1.0000000000d-08
 /
 &IONS
 /
@@ -38,4 +38,4 @@ CELL_PARAMETERS angstrom
 0    0    50
 
 K_POINTS automatic
-6 6 6 0 0 0
+6 6 1 0 0 0
