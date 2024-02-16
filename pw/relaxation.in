@@ -20,7 +20,7 @@
 &IONS
 /
 &CELL
-  cell_dofree='ibrav'
+  cell_dofree='2Dxy'
 /
 ATOMIC_SPECIES
 Mo    95.95    Mo_ONCV_PBE-1.0.oncvpsp.upf
