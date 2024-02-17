@@ -162,6 +162,6 @@ cython_debug/
 pw/out/
 pw/results/
 
-lattice/ase_configuration.xyz
-lattice/multiplied_ase_configuration.xyz
-/pw/res/
+tools/lattice/ase_configuration.xyz
+tools/lattice/multiplied_ase_configuration.xyz
+/tools/res
