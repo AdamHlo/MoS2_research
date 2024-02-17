@@ -43,8 +43,8 @@ def main():
     file = args.file
     lattice = get_lattice(file)
     cloned_lattice = clone_2d_lattice(lattice, 6, 6)
-    write_ase_configuration(cloned_lattice, 'multiplied_ase_configuration.xyz')
-    espresso_input = lattice.get_espresso_input()
+    write_ase_configuration(cloned_lattice, 'cloned_ase_configuration.xyz')
+    espresso_input = cloned_lattice.get_espresso_input()
     print(espresso_input)
 
 
