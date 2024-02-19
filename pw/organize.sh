@@ -19,6 +19,10 @@ if [ -f ./relaxation.out ]; then
    mv ./relaxation.out "$DIR/relaxation.out"
 fi
 
+if [ -f ./relaxation.out ]; then
+   mv ./defect_relaxation.out "$DIR/defect_relaxation.out"
+fi
+
 if [ -f ./out/MoS2.xml ]; then
    mv ./out/MoS2.xml "$OUTDIR/MoS2.xml"
 fi
