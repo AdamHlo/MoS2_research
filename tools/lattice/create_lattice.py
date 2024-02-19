@@ -102,9 +102,15 @@ def clone_2d_lattice(lattice: Lattice, n1: int, n2: int) -> Lattice:
     return new_lattice
 
 
-def write_ase_configuration(lattice, filename: str = 'output.xyz'):
-    atoms = lattice.get_ase_atoms()
-    write(filename, atoms)
+def write_ase_configuration(lattices: Union[list[Lattice], Lattice], filename: str = 'output.xyz'):
+    if type(lattices) == list:
+        atoms_list = []
+        for lattice in lattices:
+            atoms_list.append(lattice.get_ase_atoms())
+        write(filename, atoms_list)
+    else:
+        atoms = lattices.get_ase_atoms()
+        write(filename, atoms)
 
 
 def main():
