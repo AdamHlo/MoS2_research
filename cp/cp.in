@@ -4,8 +4,8 @@
   iprint = 1
   isave = 5
   max_seconds = 43200
-  ndr = 10
-  ndw = 11
+  ndr = 50
+  ndw = 51
   nstep = 1000
   outdir = './out/'
   prefix = 'MoS2'
