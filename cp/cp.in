@@ -1,15 +1,16 @@
 &CONTROL
-  calculation = 'scf'
+  calculation = 'vc-cp'
+  dt = 3.0d0 ! =0.072fs 1 a.u.=2.4189 * 10^-17 s
   iprint = 1
   isave = 5
   max_seconds = 43200
   ndr = 01
-  ndw = 01
-  nstep = 100
+  ndw = 02
+  nstep = 1000
   outdir = './out/'
   prefix = 'MoS2'
   pseudo_dir = '/home/adamh94/SSSP_1.3.0_PBE_efficiency/'
-  restart_mode = 'from_scratch'
+  restart_mode = 'reset_counters'
   verbosity = 'high'
 /
 &SYSTEM
@@ -21,11 +22,13 @@
     smearing = 'gaussian',
 /
 &ELECTRONS
-  electron_dynamics = 'cg'
+  electron_dynamics = 'verlet'
+  emass =   50.d0
   electron_maxstep = 100
 /
 &IONS
-ion_dynamics = 'none'
+ion_dynamics = 'verlet'
+ion_velocities = 'random'
 /
 ATOMIC_SPECIES
 Mo    95.95    Mo_ONCV_PBE-1.0.oncvpsp.upf
