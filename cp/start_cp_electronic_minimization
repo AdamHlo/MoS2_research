@@ -6,4 +6,4 @@
 
 module load QuantumESPRESSO/7.2-intel-2022a
 
-mpirun -np 256 cp.x -inp /home/adamh94/MoS2/cp_electronic_minimization.in > /home/adamh94/MoS2/output/cp_electronic_minimization.out
+mpirun -np 256 cp.x -inp cp_electronic_minimization.in > cp_electronic_minimization.out
