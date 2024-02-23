@@ -8,7 +8,7 @@
   nstep = 100
   outdir = './out/'
   prefix = 'MoS2'
-  pseudo_dir = '/home/adamh94/SSSP_1.3.0_PBE_efficiency/'
+  pseudo_dir = '../pw/pseudo/'
   restart_mode = 'from_scratch'
   verbosity = 'high'
 /
@@ -16,8 +16,8 @@
     ibrav = 0,
     nat = 107,   ! number of atoms in the unit cell
     ntyp = 2,   ! number of atom types in the unit cell
-    ecutwfc = 70.0,  ! kin. E cutoff for wavefunctions
-    ecutrho = 560,
+    ecutwfc = 120,  ! kin. E cutoff for wavefunctions
+    ecutrho = 480,
     smearing = 'gaussian',
 /
 &ELECTRONS
@@ -28,8 +28,8 @@
 ion_dynamics = 'none'
 /
 ATOMIC_SPECIES
-Mo    95.95    Mo_ONCV_PBE-1.0.oncvpsp.upf
-S     32.06    s_pbe_v1.4.uspp.F.UPF
+Mo    95.95    Mo.pbe-spn-kjpaw_psl.1.0.0.UPF
+S     32.06    S.pbe-nl-kjpaw_psl.1.0.0.UPF
 
 ATOMIC_POSITIONS angstrom
 Mo    1.5920625867261835    0.4595888815065237    25.000001799822392
