@@ -8,4 +8,5 @@ mkdir -p $OUTDIR
 
 if [ -d ./out ]; then
   cp -r ./out "$DIR/out"
+  rm -r ./out/*
 fi
