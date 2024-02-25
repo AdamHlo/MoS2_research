@@ -1,7 +1,7 @@
 &CONTROL
   calculation = 'md'
-  nstep = 1020
-  dt = 20.d0 ! = cca 1fs, (rydberg units)
+  nstep = 1000
+  dt = 30.d0 ! = cca 1fs, (rydberg units)
   outdir = './out/'
   prefix = 'MoS2'
   pseudo_dir = './pseudo/'
@@ -18,13 +18,13 @@
   nosym = .true.
 /
 &ELECTRONS
-  conv_thr =   1.0000000000d-07
+  conv_thr =   5.0000000000d-06
 /
 &IONS
   ion_dynamics = 'verlet'
   ion_temperature = 'reduce-T'
   nraise = 1 ! every nraise reduce T by delta_t
-  delta_t = 1.0 ! temperature difference
+  delta_t = -2.0d0 ! temperature difference
   tempw = 1000
 /
 &CELL
