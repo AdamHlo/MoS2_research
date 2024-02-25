@@ -1,6 +1,7 @@
 &CONTROL
   calculation = 'md'
   nstep = 1020
+  dt = 20.d0 ! = cca 1fs, (rydberg units)
   outdir = './out/'
   prefix = 'MoS2'
   pseudo_dir = './pseudo/'
