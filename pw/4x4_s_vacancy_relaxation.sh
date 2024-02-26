@@ -22,7 +22,7 @@ mkdir -p "$OUT_DIR"
 cat > $INP_FILE << EOF
 &CONTROL
   calculation = 'vc-relax'
-  outdir = './out/'
+  outdir = '${OUT_DIR}'
   prefix = 'MoS2'
   pseudo_dir = './pseudo/'
   restart_mode = 'from_scratch'
