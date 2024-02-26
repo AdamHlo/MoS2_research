@@ -12,14 +12,14 @@ JOB_NAME='441_unitc_relaxation'
 
 
 DT=`date +"%d-%b-%Y_%H-%M-%S"`
-INP_FILENAME="input.in"
-OUT_FILENAME="output.out"
 OUT_DIR="out/${JOB_NAME}_${DT}"
+INP_FILE="${OUT_DIR}/input.in"
+OUTPUT_FILE="${OUT_DIR}/output.out"
 
 mkdir -p "$OUT_DIR"
 
 
-cat > $INP_FILENAME << EOF
+cat > $INP_FILE << EOF
 &CONTROL
   calculation = 'vc-relax'
   outdir = '${OUT_DIR}'
@@ -63,4 +63,4 @@ K_POINTS automatic
 EOF
 
 
-mpirun -np 64 pw.x -inp $INP_FILENAME > "${OUT_DIR}/${OUT_FILENAME}"
+mpirun -np 64 pw.x -inp $INP_FILE > $OUTPUT_FILE
