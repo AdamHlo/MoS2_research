@@ -8,7 +8,7 @@
 module load QuantumESPRESSO/7.2-intel-2022a
 
 
-JOB_NAME='441_unitc_relaxation'
+JOB_NAME='4x4_s_vacancy_relaxation'
 
 
 DT=`date +"%d-%b-%Y_%H-%M-%S"`
