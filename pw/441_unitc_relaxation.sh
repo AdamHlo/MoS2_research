@@ -4,14 +4,17 @@
 #SBATCH -o slurm.txt
 #SBATCH -e slurm.txt
 #SBATCH --account=p376-23-1
-#SBATCH --job-name=441_unitc_relaxation
 
 module load QuantumESPRESSO/7.2-intel-2022a
 
+
+JOB_NAME='441_unitc_relaxation'
+
+
 DT=`date +"%d-%b-%Y_%H-%M-%S"`
-INP_FILENAME="${SBATCH_JOB_NAME}.in"
-OUT_FILENAME="${SBATCH_JOB_NAME}.out"
-OUT_DIR="out/${SBATCH_JOB_NAME}_${DT}"
+INP_FILENAME="${JOB_NAME}.in"
+OUT_FILENAME="${JOB_NAME}.out"
+OUT_DIR="out/${JOB_NAME}_${DT}"
 
 mkdir -p ./out
 
