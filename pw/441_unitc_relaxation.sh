@@ -4,22 +4,23 @@
 #SBATCH -o slurm.txt
 #SBATCH -e slurm.txt
 #SBATCH --account=p376-23-1
+#SBATCH --job-name=441_unitc_relaxation
 
 module load QuantumESPRESSO/7.2-intel-2022a
 
+DT=`date +"%d-%b-%Y_%H-%M-%S"`
+INP_FILENAME="${SBATCH_JOB_NAME}.in"
+OUT_FILENAME="${SBATCH_JOB_NAME}.out"
+OUT_DIR="out/${SBATCH_JOB_NAME}_${DT}"
 
-FILENAME=$(basename -- "${0}")
-EXTENSION="${FILENAME##*.}"
-FILENAME="${FILENAME%.*}"
-INP_FILENAME="${FILENAME}.in"
-OUT_FILENAME="${FILENAME}.out"
+mkdir -p ./out
 
 
 cat > $INP_FILENAME << EOF
 &CONTROL
   calculation = 'vc-relax'
-  outdir = './out/'
-  prefix = 'MoS2'
+  outdir = '${OUT_DIR}'
+  prefix = 'mos2'
   pseudo_dir = './pseudo/'
   restart_mode = 'from_scratch'
   verbosity = 'high'
@@ -59,5 +60,4 @@ K_POINTS automatic
 EOF
 
 
-mpirun -np 64 pw.x -inp $INP_FILENAME > "out/${OUT_FILENAME}"
-
+mpirun -np 64 pw.x -inp $INP_FILENAME > "${OUT_DIR}/${OUT_FILENAME}"
