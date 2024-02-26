@@ -1,7 +1,7 @@
 &CONTROL
   calculation = 'md'
   nstep = 1000
-  dt = 30.d0 ! = cca 1fs, (rydberg units)
+  dt = 30.d0 ! = 1.5fs, (rydberg units)
   outdir = './out/'
   prefix = 'MoS2'
   pseudo_dir = './pseudo/'
@@ -10,15 +10,15 @@
   wf_collect = .true.
 /
 &SYSTEM
-  ecutwfc = 70
-  ecutrho = 560
+  ecutwfc = 45
+  ecutrho = 360
   ibrav = 0
   nat = 107
   ntyp = 2
   nosym = .true.
 /
 &ELECTRONS
-  conv_thr =   5.0000000000d-06
+  conv_thr =   2.0000000000d-05
 /
 &IONS
   ion_dynamics = 'verlet'
