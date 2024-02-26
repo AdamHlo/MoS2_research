@@ -9,7 +9,7 @@ echo "created: $DIR"
 mkdir -p $OUTDIR
 
 if [ -d ./out ]; then
-  cp -r ./out "$DIR/out"
+  cp -r ./out "$DIR/"
   rm -r ./out/*
 fi
 

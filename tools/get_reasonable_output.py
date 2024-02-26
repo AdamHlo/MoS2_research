@@ -72,17 +72,25 @@ def main():
     parser.add_argument('file', nargs='?', default=Path('res/MoS2.xml'), type=Path)
     args = parser.parse_args()
     file = args.file
+    n1 = 6
+    n2 = 6
 
     lattice_steps = get_sequence_of_lattice_steps(file)
     output_lattice = get_output_lattice(file)
     lattice_steps.append(output_lattice)
 
-    cloned_lattice = clone_2d_lattice(output_lattice, 6, 6)
-    write_ase_configuration(output_lattice, 'ase_configuration.xyz')
-    write_ase_configuration(lattice_steps, 'ase_sequence.xyz')
-    write_ase_configuration(cloned_lattice, 'cloned_ase_configuration.xyz')
-    espresso_input = cloned_lattice.get_espresso_input()
-    print(espresso_input)
+    cloned_lattice = clone_2d_lattice(output_lattice, n1, n2)
+    write_ase_configuration(output_lattice, 'output_configuration.xyz')
+    write_ase_configuration(lattice_steps, 'sequence.xyz')
+    write_ase_configuration(cloned_lattice, 'cloned_configuration.xyz')
+
+    cloned_lattice_espresso = cloned_lattice.get_espresso_input()
+    output_lattice_espresso = output_lattice.get_espresso_input()
+    print(f"----------------- cloned lattice |{n1}x{n2}| -------------------\n\n")
+    print(cloned_lattice_espresso)
+    print("\n\n")
+    print(f"----------------------- output lattice -------------------------\n\n")
+    print(output_lattice_espresso)
 
 
 if __name__ == "__main__":
