@@ -12,11 +12,11 @@ JOB_NAME='441_unitc_relaxation'
 
 
 DT=`date +"%d-%b-%Y_%H-%M-%S"`
-INP_FILENAME="${JOB_NAME}.in"
-OUT_FILENAME="${JOB_NAME}.out"
+INP_FILENAME="input.in"
+OUT_FILENAME="output.out"
 OUT_DIR="out/${JOB_NAME}_${DT}"
 
-mkdir -p ./out
+mkdir -p "$OUT_DIR"
 
 
 cat > $INP_FILENAME << EOF
