@@ -69,11 +69,11 @@ def get_sequence_of_lattice_steps(file: Path) -> list[Lattice]:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('file', nargs='?', default=Path('res/MoS2.xml'), type=Path)
+    parser.add_argument('file', nargs='?', default=Path('res/mos2.xml'), type=Path)
     args = parser.parse_args()
     file = args.file
-    n1 = 6
-    n2 = 6
+    n1 = 4
+    n2 = 4
 
     lattice_steps = get_sequence_of_lattice_steps(file)
     output_lattice = get_output_lattice(file)
