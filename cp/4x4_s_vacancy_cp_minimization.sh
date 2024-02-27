@@ -36,7 +36,7 @@ cat > $INP_FILE << EOF
 /
 &SYSTEM
     ibrav = 0,
-    nat = 107,   ! number of atoms in the unit cell
+    nat = 47,   ! number of atoms in the unit cell
     ntyp = 2,   ! number of atom types in the unit cell
     ecutwfc = 40,  ! kin. E cutoff for wavefunctions
     ecutrho = 320,
