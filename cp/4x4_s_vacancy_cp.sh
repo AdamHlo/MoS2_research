@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -N 4
+#SBATCH -N 3
 #SBATCH --ntasks-per-node=64
 #SBATCH -o slurm.txt
 #SBATCH -e slurm.txt
@@ -39,6 +39,9 @@ cat > $INP_FILE << EOF
     ecutwfc = 40,  ! kin. E cutoff for wavefunctions
     ecutrho = 320,
     smearing = 'gaussian',
+    nr1b = 24,
+    nr2b = 24,
+    nr3b = 24
 /
 &ELECTRONS
   orthogonalization = 'ortho'
@@ -115,4 +118,4 @@ CELL_PARAMETERS angstrom
 EOF
 
 
-mpirun -np 256 cp.x -inp $INP_FILE > $OUTPUT_FILE
+mpirun -np 192 cp.x -inp $INP_FILE > $OUTPUT_FILE
