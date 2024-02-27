@@ -109,4 +109,4 @@ CELL_PARAMETERS angstrom
 EOF
 
 
-mpirun -np 256 pw.x -inp $INP_FILE > $OUTPUT_FILE
+mpirun -np 256 cp.x -inp $INP_FILE > $OUTPUT_FILE
