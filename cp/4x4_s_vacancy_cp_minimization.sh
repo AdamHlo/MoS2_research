@@ -41,6 +41,9 @@ cat > $INP_FILE << EOF
     ecutwfc = 40,  ! kin. E cutoff for wavefunctions
     ecutrho = 320,
     smearing = 'gaussian',
+    nr1b = 24,
+    nr2b = 24,
+    nr3b = 24
 /
 &ELECTRONS
   electron_dynamics = 'cg'

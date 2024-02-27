@@ -14,7 +14,6 @@ OUT_DIR="out/4x4_s_vacancy_cp_minimization_27-Feb-2024_17-43-26/"
 INP_FILE="${OUT_DIR}/input.in"
 OUTPUT_FILE="${OUT_DIR}/output.out"
 
-mkdir -p "$OUT_DIR"
 
 
 cat > $INP_FILE << EOF
@@ -51,7 +50,7 @@ cat > $INP_FILE << EOF
 /
 &IONS
 ion_dynamics = 'verlet'
-ion_temperatur = 'nose'
+ion_temperature = 'nose'
 ion_velocities = 'zero'
 tempw = 1000.d0
 tolp = 20.d0
