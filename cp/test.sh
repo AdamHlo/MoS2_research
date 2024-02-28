@@ -11,8 +11,8 @@ module load QuantumESPRESSO/7.2-intel-2022a
 JOB_NAME='4x4_s_vacancy_cp'
 
 OUT_DIR="out/4x4_s_vacancy_cp_minimization_27-Feb-2024_17-43-26/"
-INP_FILE="${OUT_DIR}/input.in"
-OUTPUT_FILE="${OUT_DIR}/output.out"
+INP_FILE="${OUT_DIR}/input_.in"
+OUTPUT_FILE="${OUT_DIR}/output_.out"
 
 
 
