@@ -1,9 +1,11 @@
 #!/bin/bash
-#SBATCH -N 3
+#SBATCH -N 1
 #SBATCH --ntasks-per-node=64
 #SBATCH -o slurm.txt
 #SBATCH -e slurm.txt
 #SBATCH --account=p376-23-1
+#SBATCH -p gpu
+#SBATCH -G 1
 
 module load QuantumESPRESSO/7.2-intel-2022a
 
@@ -19,7 +21,7 @@ OUTPUT_FILE="${OUT_DIR}/output_.out"
 cat > $INP_FILE << EOF
 &CONTROL
   calculation = 'cp'
-  dt = 0.0d0
+  dt = 0.0001d0
   iprint = 1
   isave = 5
   max_seconds = 43200
