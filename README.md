@@ -15,3 +15,4 @@ this should be checked thoroughly - there are some very important suggestions ab
 
 **CP**
 * electronic minimization to bring the system to electronic ground state
+* the CP algorithm breaks down in the limit of a vanishing gap - see the Pastore Smargiassi Buda 1991 PRB
