@@ -35,6 +35,29 @@ class Lattice:
 
         return ase_atoms
 
+    def noised_lattice(self, scale):
+        new_atoms = list()
+        for name, xyz in self.atoms:
+            diff = np.random.normal(scale=scale, size=3)
+            new_xyz = (np.array(xyz) + diff).tolist()
+
+            e_1 = np.array(self.cell.a_1)
+            e_2 = np.array(self.cell.a_2)
+            e_3 = np.array(self.cell.a_3)
+
+            transform_matrix = np.stack([e_1, e_2, e_3], axis=1)
+            result = np.linalg.solve(transform_matrix, new_xyz)
+            b1 = result < 0
+            b2 = result > 1
+            is_outside = np.logical_or(b1, b2).sum() != 0
+
+            if not is_outside:
+                new_atoms.append((name, new_xyz))
+            else:
+                new_atoms.append((name, xyz))
+
+        return Lattice(self.cell, new_atoms)
+
     def get_espresso_input(self) -> str:
         lines = 'ATOMIC_POSITIONS angstrom\n'
         for name, coordinates in self.atoms:
@@ -46,6 +69,10 @@ class Lattice:
         lines += f'{self.cell.a_3[0]}    {self.cell.a_3[1]}    {self.cell.a_3[2]}\n'
 
         return lines
+
+    @property
+    def size(self) -> int:
+        return len(self.atoms)
 
 
 def generate_lattice(nx, ny, lattice_constant=3.16, sulphur_z_offset=1.58, z_cell_size=50) -> Lattice:
