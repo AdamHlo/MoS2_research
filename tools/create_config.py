@@ -75,7 +75,7 @@ def render_config(parameters: Parameters, output_lattice: Lattice):
         file.write(rendered_config)
 
 
-def main():
+def generate_cp_pw_test_configs():
     for i in range(4):
         randomize_scale = 0.05
 
@@ -101,6 +101,14 @@ def main():
 
         render_config(pw_parameters, output_lattice)
         render_config(cp_parameters, output_lattice)
+
+
+def generate_cp_dynamics_config():
+    pass
+
+
+def main():
+    generate_cp_pw_test_configs()
 
 
 if __name__ == '__main__':

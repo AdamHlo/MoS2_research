@@ -58,4 +58,4 @@ S     32.06    s_pbe_v1.4.uspp.F.UPF
 ${atomic_configuration}
 EOF
 
-mpirun -np 192 pw.x -inp $INP_FILE > $OUTPUT_FILE
+mpirun -np 192 cp.x -inp $INP_FILE > $OUTPUT_FILE
