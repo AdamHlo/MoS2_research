@@ -24,7 +24,7 @@ cat > $INP_FILE << EOF
   max_seconds = 43200
   ndr = 50
   ndw = 51
-  nstep = 100
+  nstep = 50
   outdir = '$OUT_DIR'
   prefix = 'MoS2'
   pseudo_dir = '../pw/pseudo/'
