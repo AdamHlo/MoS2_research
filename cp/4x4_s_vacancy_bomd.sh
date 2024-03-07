@@ -15,7 +15,6 @@ INP_FILE="${OUT_DIR}/input.in"
 OUTPUT_FILE="${OUT_DIR}/output.out"
 
 
-
 cat > $INP_FILE << EOF
 &CONTROL
   calculation = 'cp'
@@ -25,7 +24,7 @@ cat > $INP_FILE << EOF
   max_seconds = 43200
   ndr = 50
   ndw = 51
-  nstep = 3000
+  nstep = 100
   outdir = '$OUT_DIR'
   prefix = 'MoS2'
   pseudo_dir = '../pw/pseudo/'
@@ -38,7 +37,6 @@ cat > $INP_FILE << EOF
     ntyp = 2,   ! number of atom types in the unit cell
     ecutwfc = 40,  ! kin. E cutoff for wavefunctions
     ecutrho = 320,
-    smearing = 'gaussian',
     nr1b = 24,
     nr2b = 24,
     nr3b = 24
@@ -50,10 +48,8 @@ cat > $INP_FILE << EOF
 /
 &IONS
 ion_dynamics = 'verlet'
-ion_temperature = 'rescaling'
-ion_velocities = 'zero'
+ion_velocities = 'random'
 tempw = 1000.d0
-tolp = 20.d0
 /
 ATOMIC_SPECIES
 Mo    95.95    Mo_ONCV_PBE-1.0.oncvpsp.upf
