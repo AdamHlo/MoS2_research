@@ -51,7 +51,6 @@ cat > $INP_FILE << EOF
 &IONS
 ion_dynamics = 'verlet'
 ion_temperature = 'rescaling'
-ion_velocities = 'random'
 tempw = 1000.d0
 tolp = 20.d0
 /
