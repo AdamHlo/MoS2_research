@@ -114,7 +114,7 @@ AUTOPILOT
   ON_STEP = 2 : electron_dynamics = 'cg'
   ON_STEP = 2 : ion_dynamics = 'verlet'
   ON_STEP = 2 : ion_temperature = 'rescaling'
-  ON_STEP = 2 : ion_velocities = 'random'
+  ON_STEP = 2 : ion_velocities = 'default'
   ON_STEP = 2 : tempw = 1000.d0
 
   ON_STEP = 7 : orthogonalization = 'ortho'
