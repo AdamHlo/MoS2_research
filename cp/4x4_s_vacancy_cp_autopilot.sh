@@ -15,6 +15,7 @@ OUT_DIR="out/${JOB_NAME}_${DT}"
 INP_FILE="${OUT_DIR}/input.in"
 OUTPUT_FILE="${OUT_DIR}/output.out"
 
+mkdir -p "$OUT_DIR"
 
 
 cat > $INP_FILE << EOF
