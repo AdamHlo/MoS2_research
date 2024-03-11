@@ -110,7 +110,6 @@ CELL_PARAMETERS angstrom
 0.0    0.0    50.00000719928987
 
 AUTOPILOT
-&ELECTRONS
   ON_STEP = 2 : orthogonalization = 'Gram-Schmidt'
   ON_STEP = 2 : electron_dynamics = 'cg'
   ON_STEP = 2 : electron_maxstep = 100
@@ -130,7 +129,6 @@ AUTOPILOT
   ON_STEP = 7 : tempw = 1000.d0
 
   ON_STEP = 50 : ion_temperature = 'not_controlled'
-
 ENDRULES
 EOF
 
