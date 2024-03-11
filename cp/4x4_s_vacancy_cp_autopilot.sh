@@ -112,7 +112,6 @@ CELL_PARAMETERS angstrom
 AUTOPILOT
   ON_STEP = 2 : orthogonalization = 'Gram-Schmidt'
   ON_STEP = 2 : electron_dynamics = 'cg'
-  ON_STEP = 2 : electron_maxstep = 100
   ON_STEP = 2 : ion_dynamics = 'verlet'
   ON_STEP = 2 : ion_temperature = 'rescaling'
   ON_STEP = 2 : ion_velocities = 'random'
@@ -122,7 +121,6 @@ AUTOPILOT
   ON_STEP = 7 : emass = 10.d0
   ON_STEP = 7 : emass_cutoff = 0.5d0
   ON_STEP = 7 : electron_dynamics = 'verlet'
-  ON_STEP = 7 : electron_maxstep = 100
   ON_STEP = 7 : ion_dynamics = 'verlet'
   ON_STEP = 7 : ion_temperature = 'rescaling'
   ON_STEP = 7 : ion_velocities = 'default'
