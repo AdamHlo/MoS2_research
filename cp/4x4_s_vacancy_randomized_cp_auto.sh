@@ -8,7 +8,7 @@
 module load QuantumESPRESSO/7.2-intel-2022a
 
 
-JOB_NAME='4x4_s_vacancy_cp_auto'
+JOB_NAME='4x4_s_vacancy_randomized_cp_auto'
 
 DT=`date +"%d-%b-%Y_%H-%M-%S"`
 OUT_DIR="out/${JOB_NAME}_${DT}"
