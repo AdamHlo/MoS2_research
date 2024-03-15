@@ -48,6 +48,9 @@ cat > $INP_FILE << EOF
   electron_maxstep = 100
   conv_thr = 0.000001
 /
+&IONS
+ion_dynamics = 'none'
+/
 &CELL
 /
 ATOMIC_SPECIES
