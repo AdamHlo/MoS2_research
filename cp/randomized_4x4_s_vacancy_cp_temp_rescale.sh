@@ -27,7 +27,7 @@ cat > $INP_FILE << EOF
   ndr = 52
   ndw = 53
   dt = 4.0d0
-  nstep = 50
+  nstep = 500
   outdir = '${OUT_DIR}'
   prefix = 'mos2'
   pseudo_dir = '../pw/pseudo/'
@@ -50,6 +50,8 @@ cat > $INP_FILE << EOF
 &IONS
 ion_dynamics = 'verlet'
 ion_velocities = 'default'
+ion_temperature = 'rescaling'
+tempw = 1000.d0
 /
 &CELL
 /
