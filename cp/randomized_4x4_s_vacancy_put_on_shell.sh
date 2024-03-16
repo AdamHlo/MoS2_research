@@ -10,7 +10,8 @@ module load QuantumESPRESSO/7.2-intel-2022a
 JOB_NAME='randomized_4x4_cp'
 
 
-DT=`date +"%d-%b-%Y_%H-%M-%S"`
+#DT=`date +"%d-%b-%Y_%H-%M-%S"`
+DT='15-Mar-2024_15-43-38'
 OUT_DIR="out/${JOB_NAME}_${DT}"
 INP_FILE="${OUT_DIR}/input.in"
 OUTPUT_FILE="${OUT_DIR}/output.out"
