@@ -31,7 +31,7 @@ cat > $INP_FILE << EOF
   outdir = '${OUT_DIR}'
   prefix = 'mos2'
   pseudo_dir = '../pw/pseudo/'
-  restart_mode = 'from_scratch'
+  restart_mode = 'restart'
   verbosity = 'high'
 /
 &SYSTEM
