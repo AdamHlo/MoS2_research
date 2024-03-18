@@ -20,7 +20,11 @@ def process_evp(evp_path) -> pd.DataFrame:
     return dataframe
 
 
-def main():
+def process_lattice_seq(cel_path, pos_path, vel_path):
+    pass
+
+
+def plot_run():
     evp_path = 'res/mos2.evp'
     evp = process_evp(evp_path)
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
@@ -44,6 +48,10 @@ def main():
     ax4.legend()
     fig.tight_layout()
     plt.show()
+
+
+def main():
+    plot_run()
 
 
 if __name__ == '__main__':
