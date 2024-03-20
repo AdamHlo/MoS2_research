@@ -121,7 +121,6 @@ AUTOPILOT
   ON_STEP = 53 : ion_dynamics = 'verlet'
   ON_STEP = 53 : tempw = 1000.d0
   ON_STEP = 53 : ion_temperature = 'rescaling'
-  ON_STEP = 53 : ion_velocities = 'default'
 
   ON_STEP = 553 : electron_dynamics = 'cg'
   ON_STEP = 553 : ion_dynamics = 'none'
