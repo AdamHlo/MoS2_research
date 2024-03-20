@@ -113,6 +113,7 @@ AUTOPILOT
   ON_STEP = 2 : ion_temperature = 'not_controlled'
   ON_STEP = 2 : ion_dynamics = 'verlet'
   ON_STEP = 2 : electron_dynamics = 'verlet'
+  ON_STEP = 2 : orthogonalization = 'ortho'
 
   ON_STEP = 52 : electron_dynamics = 'cg'
   ON_STEP = 52 : ion_dynamics = 'none'
