@@ -131,9 +131,9 @@ AUTOPILOT
   ON_STEP = 351 : tempw = 500.d0
   ON_STEP = 351 : ion_temperature = 'rescaling'
 
-  ON_STEP = 550 : ion_temperature = 'not_controlled'
-  ON_STEP = 550 : ion_dynamics = 'verlet'
-  ON_STEP = 550 : electron_dynamics = 'verlet'
+  ON_STEP = 1500 : ion_temperature = 'not_controlled'
+  ON_STEP = 1500 : ion_dynamics = 'verlet'
+  ON_STEP = 1500 : electron_dynamics = 'verlet'
 ENDRULES
 EOF
 
