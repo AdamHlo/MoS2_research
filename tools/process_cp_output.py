@@ -25,7 +25,13 @@ def process_lattice_seq(cel_path, pos_path, vel_path):
 
 
 def plot_run():
-    evp_path = 'res/mos2.evp'
+    fig1 = create_fig('res/4x4_s_vacancy_randomized_500K/mos2.evp')
+    fig2 = create_fig('res/4x4_s_vacancy_randomized_500K_additional_scaling/mos2.evp')
+    fig3 = create_fig('res/4x4_s_vacancy_randomized_500K_longer_scaling/mos2.evp')
+    plt.show()
+
+
+def create_fig(evp_path):
     evp = process_evp(evp_path)
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     ax1.plot('time(ps)', 'ekinc', data=evp)
@@ -47,7 +53,7 @@ def plot_run():
     ax4.set_ylabel('Ry')
     ax4.legend()
     fig.tight_layout()
-    plt.show()
+    return fig
 
 
 def main():
